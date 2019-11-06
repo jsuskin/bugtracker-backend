@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   def index
     projects = Project.all
-    render json: projects.to_json( :only => [:title], :include => [:issues] )
+    render json: projects.to_json( :only => [:id, :title], :include => [:issues] )
   end
 
   def create
