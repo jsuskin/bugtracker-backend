@@ -13,6 +13,16 @@ class IssuesController < ApplicationController
     end
   end
 
+  def update
+    @issue = Issue.find(params[:id])
+    @issue.update(issue_params)
+    if @issue.save
+      render json: @issue
+    else
+      render json: { errors: issue.errors.full_messages }, status: 422
+    end
+  end
+
   private
 
   def issue_params
