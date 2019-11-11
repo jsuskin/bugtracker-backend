@@ -23,6 +23,16 @@ class IssuesController < ApplicationController
     end
   end
 
+  def destroy
+    issue = Issue.find(params[:id])
+    issue.destroy
+    # if @issue.destroy
+    #   render json: @issue
+    # else
+    #   render json: { errors: issue.errors.full_messages }, status: 422
+    # end
+  end
+
   private
 
   def issue_params
